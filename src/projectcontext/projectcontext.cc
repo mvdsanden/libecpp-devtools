@@ -1,8 +1,10 @@
 #include "projectcontext.ih"
 
 ProjectContext::ProjectContext()
-  : d_projectPath("/tmp")
+  : d_config(0),
+    d_projectPath("/tmp")
 {
+  findConfig();
 }
 
 ProjectContext::~ProjectContext()

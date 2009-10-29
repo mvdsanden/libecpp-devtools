@@ -5,6 +5,9 @@
 int InitMod::main(ArgList::iterator begin, ArgList::iterator end)
 {
 
+  if (d_context.initialized())
+    throw runtime_error("we are already inside a project");
+
   string ns = "";
   string name = "";
 

@@ -46,17 +46,26 @@ namespace ecpp
      */
     void save();
 
+    /**
+     *  Load the project config.
+     */
+    void loadConfig();
+
   private:
 
-    xmlpp::Document d_config;
+    void findConfig();
+
+    xmlpp::Document *d_config;
 
     Path d_projectPath;
+
+    xmlpp::DomParser d_parser;
 
   };
 
   inline bool ProjectContext::initialized() const
   {
-    return d_config.get_root_node();
+    return d_config && d_config->get_root_node();
   }
 
 };

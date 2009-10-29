@@ -4,7 +4,7 @@
 
 void ProjectContext::save()
 {
-  if (d_config.get_root_node()) {
+  if (d_config && d_config->get_root_node()) {
 
     // The main project config dir.
     Path ecppDir = d_projectPath / Path(".ecpp");
@@ -21,7 +21,7 @@ void ProjectContext::save()
     cerr << "Writing to " << ecppConfig.str() << endl;
 
     // Write xml.
-    d_config.write_to_file_formatted(ecppConfig.str());
+    d_config->write_to_file_formatted(ecppConfig.str());
 
   }
 }
