@@ -1,0 +1,4 @@
+#include "ecppproject.hh"
+
+using namespace std;
+using namespace ecpp;
