@@ -24,6 +24,8 @@ ecpp-project create subclass <name>	- Creates headers for a sub class to the cla
 
 ecpp-project create member <name>	- Creates a member source for the class of the current directory.
 
+ecpp-project create app <name>		- Creates an application (a source with a main()).
+
 ecpp-project erase class <name>		- Erases a class from the project (using 'svn rm' or 'git rm' if
 					  appropriate).
 

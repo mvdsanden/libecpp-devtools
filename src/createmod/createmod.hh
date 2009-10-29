@@ -16,6 +16,7 @@
 #define __INC_ECPP_CREATEMOD_HH__
 
 #include "../module/module.hh"
+#include "../projectcontext/projectcontext.hh"
 
 #include <string>
 
@@ -27,7 +28,7 @@ namespace ecpp
   class CreateMod : public Module {
   public:
 
-    CreateMod();
+    CreateMod(ProjectContext &context);
 
     virtual int main(ArgList::iterator begin, ArgList::iterator end);
 
@@ -36,6 +37,10 @@ namespace ecpp
     int createMember(ArgList::iterator begin, ArgList::iterator end);
 
     void usage();
+
+  private:
+
+    ProjectContext &d_context;
 
   };
 

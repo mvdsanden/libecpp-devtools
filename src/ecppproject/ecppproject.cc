@@ -1,10 +1,13 @@
 #include "ecppproject.ih"
 
+
 #include "../createmod/createmod.hh"
+#include "../initmod/initmod.hh"
 
 ECPPProject::ECPPProject()
 {
-  addModule(new CreateMod);
+  addModule(new CreateMod(d_context));
+  addModule(new InitMod(d_context));
 }
 
 

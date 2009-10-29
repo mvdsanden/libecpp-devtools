@@ -1,0 +1,7 @@
+#include "projectcontext.hh"
+
+#include <stdexcept>
+
+using namespace std;
+using namespace ecpp;
+using namespace xmlpp;

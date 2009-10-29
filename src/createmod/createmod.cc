@@ -1,6 +1,7 @@
 #include "createmod.ih"
 
-CreateMod::CreateMod()
-  : Module("create")
+CreateMod::CreateMod(ProjectContext &context)
+  : Module("create"),
+    d_context(context)
 {
 }

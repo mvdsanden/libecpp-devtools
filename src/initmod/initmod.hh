@@ -12,44 +12,34 @@
   along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef __INC_ECPP_ECPPPROJECT_HH__
-#define __INC_ECPP_ECPPPROJECT_HH__
+#ifndef __INC_ECPP_INITMOD_HH__
+#define __INC_ECPP_INITMOD_HH__
 
-#include "../app/app.hh"
 #include "../module/module.hh"
 #include "../projectcontext/projectcontext.hh"
 
-#include <map>
+#include <string>
+
+#include <ecpp/arglist/arglist.hh>
 
 namespace ecpp
 {
 
-  class ECPPProject : public App {
+  class InitMod : public Module {
   public:
 
-    ECPPProject();
+    InitMod(ProjectContext &context);
 
-    virtual ~ECPPProject();
+    virtual int main(ArgList::iterator begin, ArgList::iterator end);
 
-    void addModule(Module *module);
-
-    virtual int main(ArgList &args);
+    void usage();
 
   private:
 
-    void parseOption(ArgList::iterator &arg);
-
-    std::map<std::string,Module*> d_modules;
-
-    ProjectContext d_context;
+    ProjectContext &d_context;
 
   };
 
-  inline void ECPPProject::addModule(Module *module)
-  {
-    d_modules[module->name()] = module;
-  }
-
 };
 
-#endif // __INC_ECPP_ECPPPROJECT_HH__
+#endif // __INC_ECPP_INITMOD_HH__
