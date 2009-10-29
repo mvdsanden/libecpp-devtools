@@ -1,0 +1,77 @@
+LibECPP Development Tools
+#########################
+
+
+This module provides tools for developing projects
+using the FBB structed, used by libecpp.
+
+
+Usage:
+
+ecpp-project init <name>		- Initialized the current directory as an ecpp style project.
+
+ecpp-project add ns <name>		- Adds a namespace to the project. Internal headers are only
+					  updates when their md5sums match their original by
+					  ecpp-project created file md5sums.
+
+ecpp-project add dep <name>		- Adds a dependency. It will check pkg-config <name> and
+					  a few prefixes to try to find the compilation flags.
+
+ecpp-project create class <name>	- Creates a project class (creating directory and headers, adding
+					  the files to git or svn if .git or .svn is found).
+
+ecpp-project create subclass <name>	- Creates headers for a sub class to the class of the current directory.
+
+ecpp-project create member <name>	- Creates a member source for the class of the current directory.
+
+ecpp-project erase class <name>		- Erases a class from the project (using 'svn rm' or 'git rm' if
+					  appropriate).
+
+
+The ECPP Project tool uses the following accounting system.
+
+Each top project directory contains a subdirectory called '.ecpp/' which contains
+some accounting files. Also each class directory contains a file called '.ecpp_class'
+which contains some local accounting information (members and subclasses).
+
+All accounting files use xml, so other application can read them if necessary.
+
+Example:
+
+[project-root]/.ecpp/config
+
+<ecpp-project>
+	<name>libecpp-devtools</name>
+	<namespace>ecpp</namespace>
+
+	<namespaces>
+		<ns name="ecpp"\>
+		<ns name="std"\>
+	</namespaces>
+
+	<dependencies>
+		<pkg-config name="libxml2"/>
+		<library name="libecpp-common" flags="-Ilibecpp" lib="-lecpp-common"/>
+	</dependencies>
+
+	<classes>
+		<class name="test"/>
+	</classes>
+
+	<git use="true"\>
+	<svn use="false"\>
+</ecpp-project>
+
+
+[project-root]/test/.ecpp_class
+
+<ecpp-class>
+
+	<name>Test</name>
+
+	<member name="foo.cc"/>
+
+	<ih>EA527B7827792F82379D28789387EB28937C2897A5F6</ih>
+
+</ecpp-class>
+
