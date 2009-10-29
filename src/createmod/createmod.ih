@@ -1,4 +1,6 @@
 #include "createmod.hh"
 
+#include <stdexcept>
+
 using namespace std;
 using namespace ecpp;

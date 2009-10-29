@@ -1,0 +1,59 @@
+#ifndef @incguard
+#define @incguard
+
+namespace @ns {
+
+
+  /**
+   *
+   *
+   */
+  class @classname {
+
+    void copy(@classname const &other);
+    void destroy();
+
+  public:
+
+    @classname();
+
+    ~@classname();
+
+    @classname(@classname const &other);
+
+    @classname &operator=(@classname const &other);
+
+
+    // Add your public member functions here...
+
+
+  private:
+
+    // Add your private members...
+
+  };
+
+  inline @classname::~@classname()
+  {
+    destroy();
+  }
+
+  inline @classname @classname::@classname(@classname const &other)
+  {
+    copy(other);
+  }
+
+  inline @classname &@classname::operator=(@classname const &other)
+  {
+    if (this != &other) {
+      destroy();
+      copy(other);
+    }
+    return *this;
+  }
+
+
+};
+
+
+#endif // @incguard

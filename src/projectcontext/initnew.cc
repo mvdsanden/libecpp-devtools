@@ -12,11 +12,11 @@ void ProjectContext::initNew(std::string const &name, std::string const &ns)
   d_projectPath = Path::currentWorkingDirectory();
 
   // Create the root node.
-  Node *root = dynamic_cast<Node*>(d_config->create_root_node("ecpp-project"));
+  Element *root = d_config->create_root_node("ecpp-project");
 
   // Set the name.
-  root->add_child("name")->add_child_text(name);
-  root->add_child("namespace")->add_child_text(ns);
+  root->set_attribute("name",name);
+  root->set_attribute("namespace",ns);
 
   // The namespace
   Node *nss = root->add_child("namespaces");

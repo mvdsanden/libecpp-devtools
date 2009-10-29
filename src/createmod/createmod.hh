@@ -40,6 +40,12 @@ namespace ecpp
 
   private:
 
+    bool classExists(std::string const &name);
+
+    void makeClass(std::string const &name, Path path, std::vector<std::string> const &ns);
+
+    void makeTmplFile(Path const &tmpl, Path const &dest, std::map<std::string,std::string> const &substs);
+
     ProjectContext &d_context;
 
   };
