@@ -26,6 +26,6 @@ globalHeaders="esyscmd(ccbuild -C src --verbose deps libecpp-devtools.cc|tail -n
 #AC_CHECK_HEADERS($globalHeaders,,AC_MSG_ERROR([Required header file missing.]))
 
 dnl Create makefiles
-AC_OUTPUT(Makefile src/Makefile)
+AC_OUTPUT(Makefile src/Makefile templates/Makefile)
 
     

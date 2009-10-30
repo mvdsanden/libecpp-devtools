@@ -9,15 +9,15 @@ Path ProjectContext::findTmpl(string const &name)
   if (tmpl.exists())
     return tmpl;
 
-  tmpl = Path::home() / Path(".ecpp") / Path("header.tmpl");
+  tmpl = Path::home() / Path(".ecpp") / header;
 
   if (tmpl.exists())
     return tmpl;
 
-  tmpl = Path("/usr/local/share/ecpp/templates") / Path("header.tmpl");
+  tmpl = Path("/usr/local/share/libecpp/templates") / header;
 
   if (tmpl.exists())
     return tmpl;
 
-  throw runtime_error("template not found");
+  throw runtime_error("template '"+name+"' not found");
 }
