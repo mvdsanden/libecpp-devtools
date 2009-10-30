@@ -12,21 +12,18 @@ AC_CONFIG_MACRO_DIR([m4])
 ACLOCAL_AMFLAGS='${ACLOCAL_FLAGS}'
 AC_SUBST(ACLOCAL_AMFLAGS)
 
-PKG_CHECK_MODULES(DEPS, libxml++-2.6 >= 2.10.0)
-AC_SUBST(DEPS_CFLAGS)
-AC_SUBST(DEPS_LIBS)
-
 dnl Checks for programs.
 AC_PROG_CXX
 AC_PROG_LIBTOOL
 AC_PROG_INSTALL
 
-#Use ccbuild to generate a list of headers we use. This depends on ccbuild >= 2.0.0
-globalHeaders="esyscmd(ccbuild -C src --verbose deps libecpp-devtools.cc|tail -n1)"
-AC_CHECK_HEADERS($globalHeaders,,AC_MSG_ERROR([Required header file missing.]))
-
+PKG_CHECK_MODULES(DEPS, libxml++-2.6 >= 2.10.0)
 AC_SUBST(DEPS_CFLAGS)
 AC_SUBST(DEPS_LIBS)
+
+#Use ccbuild to generate a list of headers we use. This depends on ccbuild >= 2.0.0
+globalHeaders="esyscmd(ccbuild -C src --verbose deps libecpp-devtools.cc|tail -n1)"
+#AC_CHECK_HEADERS($globalHeaders,,AC_MSG_ERROR([Required header file missing.]))
 
 dnl Create makefiles
 AC_OUTPUT(Makefile src/Makefile)
