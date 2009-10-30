@@ -48,6 +48,10 @@ cat > src/Makefile.am <<EOF
 PACKAGE = @PACKAGE@
 VERSION = @VERSION@
 
+bin_PROGRAMS = ecpp-project
+ecpp_project_SOURCES = ecpp-project.cc
+ecpp_project_LDFLAGS = -lecpp-devtools -lecpp-common -lecpp-filesystem
+
 AUTOMAKE_OPTIONS = subdir-objects
 
 lib_LTLIBRARIES = ${LNAME}.la
