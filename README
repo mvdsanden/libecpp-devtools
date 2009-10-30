@@ -19,10 +19,9 @@ ecpp-project add dep <name>		- Adds a dependency. It will check pkg-config <name
 
 ecpp-project create class <name>	- Creates a project class (creating directory and headers, adding
 					  the files to git or svn if .git or .svn is found).
-
-ecpp-project create subclass <name>	- Creates headers for a sub class to the class of the current directory.
-
 ecpp-project create member <name>	- Creates a member source for the class of the current directory.
+
+ecpp-project rename class <name>	- Renames a class and its files.
 
 ecpp-project create app <name>		- Creates an application (a source with a main()).
 
