@@ -2,6 +2,9 @@
 
 int ECPPProject::main(ArgList &args)
 {
+  if (args.empty())
+    usage();
+
   ArgList::iterator arg = args.begin() + 1;
 
   while (arg != args.end()) {

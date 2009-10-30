@@ -32,6 +32,8 @@ namespace ecpp
 
     virtual int main(ArgList::iterator begin, ArgList::iterator end);
 
+    virtual std::string description();
+
     int createClass(ArgList::iterator begin, ArgList::iterator end);
     int createSubClass(ArgList::iterator begin, ArgList::iterator end);
     int createMember(ArgList::iterator begin, ArgList::iterator end);

@@ -17,5 +17,20 @@ void ProjectContext::initClass(Path const &path, std::string const &name)
   root->add_child("svn")->set_attribute("use","false");
 
   // Write xml.
-  d_config->write_to_file_formatted(path.str());
+  cl->write_to_file_formatted(path.str());
+
+  delete cl;
+
+  list<Node*> cls = d_config->get_root_node()->get_children("classes");
+
+  Node *cnode = 0;
+
+  if (cls.empty()) {
+    cnode = d_config->get_root_node()->add_child("classes");
+  } else
+    cnode = cls.front();
+
+  Element *c = cnode->add_child("class");
+  c->set_attribute("name",name);
+  c->set_attribute("path",(path - Path::currentWorkingDirectory()).str());
 }

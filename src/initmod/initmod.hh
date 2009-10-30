@@ -32,6 +32,8 @@ namespace ecpp
 
     virtual int main(ArgList::iterator begin, ArgList::iterator end);
 
+    virtual std::string description();
+
     void usage();
 
   private:

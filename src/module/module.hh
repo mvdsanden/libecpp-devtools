@@ -29,6 +29,8 @@ namespace ecpp
 
     std::string const &name() const;
 
+    virtual std::string description() = 0;
+
     virtual int main(ArgList::iterator begin, ArgList::iterator end) = 0;
 
   private:

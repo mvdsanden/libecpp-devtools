@@ -35,6 +35,8 @@ namespace ecpp
 
     virtual int main(ArgList &args);
 
+    void usage();
+
   private:
 
     void parseOption(ArgList::iterator &arg);
